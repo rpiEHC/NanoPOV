@@ -15,200 +15,16 @@
 #include "alphabet.h"
 
 char ** alphabet;
-char ** displayString;
+String displayString;
 
 #define COMMON_VALUE 0x00
 #define UNIQUE_VALUE 0xFF
 //0xFF is used instead of HIGH (0x01) to provide a speedup when displaying
 
-void testLeds () {
-  digitalWrite(center_common, UNIQUE_VALUE);
-  digitalWrite(outer_center_common, UNIQUE_VALUE);
-  digitalWrite(inner_outer_common, UNIQUE_VALUE);
-  digitalWrite(outer_common, UNIQUE_VALUE);
-  
-  
-  digitalWrite(center_common, COMMON_VALUE);
-  
-  digitalWrite(blue1, UNIQUE_VALUE );
-  delay(0);
-  digitalWrite(blue1, COMMON_VALUE);
-  digitalWrite(green1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(green1, COMMON_VALUE);
-  digitalWrite(red1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(red1, COMMON_VALUE);
-  digitalWrite(center_common, UNIQUE_VALUE);
-  
-  digitalWrite(outer_center_common, COMMON_VALUE);
-  digitalWrite(blue1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(blue1, COMMON_VALUE);
-  digitalWrite(green1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(green1, COMMON_VALUE); 
-  digitalWrite(red1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(red1, COMMON_VALUE);
-  digitalWrite(outer_center_common, UNIQUE_VALUE);
-  
-  digitalWrite(inner_outer_common, COMMON_VALUE);
-  digitalWrite(blue1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(blue1, COMMON_VALUE);
-  digitalWrite(green1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(green1, COMMON_VALUE);
-  digitalWrite(red1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(red1, COMMON_VALUE);
-  digitalWrite(inner_outer_common, UNIQUE_VALUE);
-  
-  digitalWrite(outer_common, COMMON_VALUE);
-  digitalWrite(blue1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(blue1, COMMON_VALUE);
-  digitalWrite(green1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(green1, COMMON_VALUE);
-  digitalWrite(red1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(red1, COMMON_VALUE);
-  digitalWrite(outer_common, UNIQUE_VALUE);
-  
-  
-  
-  
-  
-  
-  digitalWrite(outer_common, COMMON_VALUE);
-  digitalWrite(blue2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(blue2, COMMON_VALUE);
-  digitalWrite(green2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(green2, COMMON_VALUE);
-  digitalWrite(red2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(red2, COMMON_VALUE);
-  digitalWrite(outer_common, UNIQUE_VALUE);
-  
-  digitalWrite(inner_outer_common, COMMON_VALUE);
-  digitalWrite(blue2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(blue2, COMMON_VALUE);
-  digitalWrite(green2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(green2, COMMON_VALUE);
-  digitalWrite(red2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(red2, COMMON_VALUE);
-  digitalWrite(inner_outer_common, UNIQUE_VALUE);
-  
-  digitalWrite(outer_center_common, COMMON_VALUE);
-  digitalWrite(blue2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(blue2, COMMON_VALUE);
-  digitalWrite(green2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(green2, COMMON_VALUE); 
-  digitalWrite(red2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(red2, COMMON_VALUE);
-  digitalWrite(outer_center_common, UNIQUE_VALUE);
-  
-  digitalWrite(center_common, COMMON_VALUE);
-  digitalWrite(blue2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(blue2, COMMON_VALUE);
-  digitalWrite(green2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(green2, COMMON_VALUE);
-  digitalWrite(red2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(red2, COMMON_VALUE);
-  digitalWrite(center_common, UNIQUE_VALUE);
-}
 
-int color1 = red1;
-int color2 = red2;
-int backup1 = blue1;
-int backup2 = blue2;
-
-void testLeds2 () {
-  if (analogRead(0)>500 && analogRead(1) < 500) {
-    color1 = red1;
-    color2 = red2;
-  }
-  else if (analogRead(0)>500 && analogRead(1) > 500) {
-    color1 = green1;
-    color2 = green2;
-  }
-  else {
-    color1 = blue1;
-    color2 = blue2;
-  }
-  
-  
-  digitalWrite(center_common, UNIQUE_VALUE);
-  digitalWrite(outer_center_common, UNIQUE_VALUE);
-  digitalWrite(inner_outer_common, UNIQUE_VALUE);
-  digitalWrite(outer_common, UNIQUE_VALUE);
-  
-  
-  digitalWrite(center_common, COMMON_VALUE);
-  digitalWrite(color1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(color1, COMMON_VALUE);
-  digitalWrite(center_common, UNIQUE_VALUE);
-  
-  digitalWrite(outer_center_common, COMMON_VALUE);
-  digitalWrite(color1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(color1, COMMON_VALUE);
-  digitalWrite(outer_center_common, UNIQUE_VALUE);
-  
-  digitalWrite(inner_outer_common, COMMON_VALUE);
-  digitalWrite(color1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(color1, COMMON_VALUE);
-  digitalWrite(inner_outer_common, UNIQUE_VALUE);
-  
-  digitalWrite(outer_common, COMMON_VALUE);
-  digitalWrite(color1, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(color1, COMMON_VALUE);
-  digitalWrite(outer_common, UNIQUE_VALUE);  
-  
-  digitalWrite(outer_common, COMMON_VALUE);
-  digitalWrite(color2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(color2, COMMON_VALUE);
-  digitalWrite(outer_common, UNIQUE_VALUE);
-  
-  digitalWrite(inner_outer_common, COMMON_VALUE);
-  digitalWrite(color2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(color2, COMMON_VALUE);
-  digitalWrite(inner_outer_common, UNIQUE_VALUE);
-  
-  digitalWrite(outer_center_common, COMMON_VALUE); 
-  digitalWrite(color2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(color2, COMMON_VALUE);
-  digitalWrite(outer_center_common, UNIQUE_VALUE);
-  
-  digitalWrite(center_common, COMMON_VALUE);
-  digitalWrite(color2, UNIQUE_VALUE);
-  delay(0);
-  digitalWrite(color2, COMMON_VALUE);
-  digitalWrite(center_common, UNIQUE_VALUE);
-}
 
 
 void setup () {
-  Serial.begin(19200);
   pinMode(3,OUTPUT);
   pinMode(4,OUTPUT);
   pinMode(5,OUTPUT);
@@ -228,13 +44,13 @@ void setup () {
   // if every ascii value is set using 
   
   // the length is 256 so it can be stored in a char and edited in one byte
-  displayString = (char **) malloc (256 * sizeof(char **));
+  //displayString = (char **) malloc (256 * sizeof(char **));
   
-  // 128 
   //set all of the ascii values
   loadAlphabet(alphabet);
-  Serial.begin(9600);
-  Serial.println((int) alphabet['#'][0]);
+  
+  
+  displayString = "HELLO THERE KEVIN";
 }
 
 void displayLetter(char letter) {
@@ -360,19 +176,7 @@ void displayByte(char red, char blue, char green) {
 }
 
 void loop() {
-  // begin from the middle
-  //testLeds();
-  displayLetter(' ');
-  displayLetter(' ');
-  displayLetter('K');
-  displayLetter('E');
-  displayLetter('V');
-  displayLetter('I');
-  displayLetter('N');
-  
-  /*Serial.print(LOW);
-  Serial.print(" - ");
-  Serial.println(analogRead(1));/**/
-  
-  // normal is 0 = >500   1 < 500
+  for (int i = 0; i < displayString.length(); i++) {
+    displayLetter(displayString[i]);
+  }
 }

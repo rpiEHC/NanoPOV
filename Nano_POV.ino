@@ -1,6 +1,3 @@
-#define LENGTH 7
-
-
 #define blue1 3
 #define green1 4
 #define red1 5
@@ -15,7 +12,6 @@
 #include "alphabet.h"
 
 char ** alphabet;
-String displayString;
 
 #define COMMON_VALUE 0x00
 #define UNIQUE_VALUE 0xFF
@@ -49,8 +45,6 @@ void setup () {
   
   //set all of the ascii values
   loadAlphabet(alphabet);
-  
-  displayString = "GO RED    ";
 }
 
 void displayLetter(char letter, char RED, char GREEN, char BLUE) {
@@ -171,12 +165,13 @@ void displayByte(char red, char blue, char green) {
   digitalWrite(center_common, UNIQUE_VALUE);
 }
 
-void displayString (String words, char RED, char GREEN, char BLUE) {
+void displayString (String displayString, char RED, char GREEN, char BLUE) {
   for (int i = 0; i < displayString.length(); i++) {
-    displayLetter(displayString[i],0xFF,0,0xFF);
+    displayLetter(displayString[i],RED,GREEN,BLUE);
   }
 }
 
 void loop() {
-  
+  displayString("GO ",ON,ON,ON);
+  displayString("RED  ",ON,OFF,OFF);
 }

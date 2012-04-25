@@ -33,18 +33,13 @@ void setup () {
   pinMode(11,OUTPUT);
   pinMode(12,OUTPUT);
   
-  
-  // while this is not the most effecient way to write this program it is the most configurable
-  // it could all be created without using any ram and the conversion statement could be done compleetely as
-  // a switch statement in flash. However that would require the letters to be compiled beforehand, that might be ok
-  
-  // if every ascii value is set using 
-  
-  // the length is 256 so it can be stored in a char and edited in one byte
-  //displayString = (char **) malloc (256 * sizeof(char **));
-  
   //set all of the ascii values
   loadAlphabet(alphabet);
+}
+
+void loop() {
+  displayString("GO ",ON,ON,ON);
+  displayString("RED  ",ON,OFF,OFF);
 }
 
 void displayLetter(char letter, char RED, char GREEN, char BLUE) {
@@ -55,7 +50,6 @@ void displayLetter(char letter, char RED, char GREEN, char BLUE) {
 }
 
 void displayByte(char red, char blue, char green) {
-  
   
   digitalWrite(center_common, UNIQUE_VALUE);
   digitalWrite(outer_center_common, UNIQUE_VALUE);
@@ -111,11 +105,7 @@ void displayByte(char red, char blue, char green) {
   digitalWrite(red1, COMMON_VALUE);
   digitalWrite(outer_common, UNIQUE_VALUE);
   
-  
-  
-  
-  
-  
+    
   digitalWrite(outer_common, COMMON_VALUE);
   digitalWrite(blue2,  UNIQUE_VALUE & blue & 0x80);
   delay(0);
@@ -169,9 +159,4 @@ void displayString (String displayString, char RED, char GREEN, char BLUE) {
   for (int i = 0; i < displayString.length(); i++) {
     displayLetter(displayString[i],RED,GREEN,BLUE);
   }
-}
-
-void loop() {
-  displayString("GO ",ON,ON,ON);
-  displayString("RED  ",ON,OFF,OFF);
 }

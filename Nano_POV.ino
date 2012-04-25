@@ -77,7 +77,7 @@ void displayByte(char red, char blue, char green) {
   delay(0);
   digitalWrite (green1, COMMON_VALUE); 
   digitalWrite (red1,   UNIQUE_VALUE & red   & 0x04);
-  delay(0);
+  
   digitalWrite (red1,   COMMON_VALUE);
   digitalWrite (outer_center_common, UNIQUE_VALUE);
   

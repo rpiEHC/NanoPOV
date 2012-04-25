@@ -120,98 +120,82 @@ void displayByte(char red, char blue, char green) {
   
   digitalWrite (INNER_CENTER_COMMON_PIN, COMMON_ON);
   digitalWrite (blue1 , COLOR_ON & blue  & 0x08);
-  delay(0);
-  digitalWrite (blue1 , COLOR_OFF);
   digitalWrite (green1, COLOR_ON & green & 0x08);
-  delay(0);
-  digitalWrite (green1, COLOR_OFF);
   digitalWrite (red1,   COLOR_ON & red   & 0x08);
   delay(0);
+  digitalWrite (blue1 , COLOR_OFF);
+  digitalWrite (green1, COLOR_OFF);
   digitalWrite (red1,   COLOR_OFF);
   digitalWrite(INNER_CENTER_COMMON_PIN, COMMON_OFF);
   
   digitalWrite (OUTER_CENTER_COMMON_PIN, COMMON_ON);
   digitalWrite (blue1,  COLOR_ON & blue  & 0x04);
+  digitalWrite (green1, COLOR_ON & green & 0x04);
+  digitalWrite (red1,   COLOR_ON & red   & 0x04);
   delay(0);
   digitalWrite (blue1,  COLOR_OFF);
-  digitalWrite (green1, COLOR_ON & green & 0x04);
-  delay(0);
-  digitalWrite (green1, COLOR_OFF); 
-  digitalWrite (red1,   COLOR_ON & red   & 0x04);
-  
+  digitalWrite (green1, COLOR_OFF);  
   digitalWrite (red1,   COLOR_OFF);
   digitalWrite (OUTER_CENTER_COMMON_PIN, COMMON_OFF);
   
   digitalWrite(INNER_EDGE_COMMON_PIN, COMMON_ON);
   digitalWrite(blue1,  COLOR_ON & blue & 0x02);
-  delay(0);
-  digitalWrite(blue1,  COLOR_OFF);
   digitalWrite(green1, COLOR_ON & green & 0x02);
-  delay(0);
-  digitalWrite(green1, COLOR_OFF);
   digitalWrite(red1,   COLOR_ON & red & 0x02);
   delay(0);
+  digitalWrite(blue1,  COLOR_OFF);
+  digitalWrite(green1, COLOR_OFF);
   digitalWrite(red1,   COLOR_OFF);
   digitalWrite(INNER_EDGE_COMMON_PIN, COMMON_OFF);
   
   digitalWrite(OUTER_EDGE_COMMON_PIN, COMMON_ON);
   digitalWrite(blue1, COLOR_ON & blue & 0x01);
-  delay(0);
-  digitalWrite(blue1, COLOR_OFF);
   digitalWrite(green1, COLOR_ON & green & 0x01);
-  delay(0);
-  digitalWrite(green1, COLOR_OFF);
   digitalWrite(red1, COLOR_ON & red & 0x01);
   delay(0);
+  digitalWrite(blue1, COLOR_OFF);
+  digitalWrite(green1, COLOR_OFF);
   digitalWrite(red1, COLOR_OFF);
   digitalWrite(OUTER_EDGE_COMMON_PIN, COMMON_OFF);
   
     
   digitalWrite(OUTER_EDGE_COMMON_PIN, COMMON_ON);
   digitalWrite(blue2,  COLOR_ON & blue & 0x80);
-  delay(0);
-  digitalWrite(blue2,  COLOR_OFF);
   digitalWrite(green2, COLOR_ON & green & 0x80);
-  delay(0);
-  digitalWrite(green2, COLOR_OFF);
   digitalWrite(red2,   COLOR_ON & red & 0x80);
   delay(0);
+  digitalWrite(blue2,  COLOR_OFF);
+  digitalWrite(green2, COLOR_OFF);
   digitalWrite(red2,   COLOR_OFF);
   digitalWrite(OUTER_EDGE_COMMON_PIN, COMMON_OFF);
   
   digitalWrite(INNER_EDGE_COMMON_PIN, COMMON_ON);
   digitalWrite(blue2,  COLOR_ON & blue & 0x40);
-  delay(0);
-  digitalWrite(blue2,  COLOR_OFF);
   digitalWrite(green2, COLOR_ON & green & 0x40);
-  delay(0);
-  digitalWrite(green2, COLOR_OFF);
   digitalWrite(red2,   COLOR_ON & red & 0x40);
   delay(0);
+  digitalWrite(blue2,  COLOR_OFF);
+  digitalWrite(green2, COLOR_OFF);
   digitalWrite(red2,   COLOR_OFF);
   digitalWrite(INNER_EDGE_COMMON_PIN, COMMON_OFF);
   
   digitalWrite(OUTER_CENTER_COMMON_PIN, COMMON_ON);
-  digitalWrite(blue2, COLOR_ON & blue & 0x20);
-  delay(0);
-  digitalWrite(blue2, COLOR_OFF);
+  digitalWrite(blue2,  COLOR_ON & blue & 0x20);
   digitalWrite(green2, COLOR_ON & green & 0x20);
+  digitalWrite(red2,   COLOR_ON & red & 0x20);
   delay(0);
+  digitalWrite(blue2,  COLOR_OFF);
   digitalWrite(green2, COLOR_OFF); 
-  digitalWrite(red2, COLOR_ON & red & 0x20);
-  delay(0);
-  digitalWrite(red2, COLOR_OFF);
+  digitalWrite(red2,   COLOR_OFF);
   digitalWrite(OUTER_CENTER_COMMON_PIN, COMMON_OFF);
   
   digitalWrite(INNER_CENTER_COMMON_PIN, COMMON_ON);
   digitalWrite(blue2, COLOR_ON & blue & 0x10);
-  delay(0);
-  digitalWrite(blue2, COLOR_OFF);
   digitalWrite(green2, COLOR_ON & green & 0x10);
-  delay(0);
-  digitalWrite(green2, COLOR_OFF);
   digitalWrite(red2, COLOR_ON & red & 0x10);
   delay(0);
+  digitalWrite(blue2, COLOR_OFF);
+  digitalWrite(green2, COLOR_OFF);
   digitalWrite(red2, COLOR_OFF);
   digitalWrite(INNER_CENTER_COMMON_PIN, COMMON_OFF);
 }

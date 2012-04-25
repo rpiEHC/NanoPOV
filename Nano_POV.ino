@@ -21,7 +21,8 @@ String displayString;
 #define UNIQUE_VALUE 0xFF
 //0xFF is used instead of HIGH (0x01) to provide a speedup when displaying
 
-
+#define ON 0xff
+#define OFF 0x00
 
 
 void setup () {
@@ -49,18 +50,13 @@ void setup () {
   //set all of the ascii values
   loadAlphabet(alphabet);
   
-  
-  displayString = "HELLO THERE KEVIN";
+  displayString = "GO RED    ";
 }
 
-void displayLetter(char letter) {
-  displayByte (alphabet[letter][0],alphabet[letter][0],alphabet[letter][0]);
-  displayByte (alphabet[letter][1],alphabet[letter][1],alphabet[letter][1]);
-  displayByte (alphabet[letter][2],alphabet[letter][2],alphabet[letter][2]);
-  displayByte (alphabet[letter][3],alphabet[letter][3],alphabet[letter][3]);
-  displayByte (alphabet[letter][4],alphabet[letter][4],alphabet[letter][4]);
-  displayByte (alphabet[letter][5],alphabet[letter][5],alphabet[letter][5]);
-  displayByte (alphabet[letter][6],alphabet[letter][6],alphabet[letter][6]);
+void displayLetter(char letter, char RED, char GREEN, char BLUE) {
+  for (int i = 0; i < 7; i ++) {
+    displayByte (alphabet[letter][i] & RED, alphabet[letter][i] & BLUE, alphabet[letter][i] & GREEN);
+  }
   displayByte (0,0,0);
 }
 
@@ -175,8 +171,12 @@ void displayByte(char red, char blue, char green) {
   digitalWrite(center_common, UNIQUE_VALUE);
 }
 
-void loop() {
+void displayString (String words, char RED, char GREEN, char BLUE) {
   for (int i = 0; i < displayString.length(); i++) {
-    displayLetter(displayString[i]);
+    displayLetter(displayString[i],0xFF,0,0xFF);
   }
+}
+
+void loop() {
+  
 }

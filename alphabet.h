@@ -1,5 +1,7 @@
 #include "Arduino.h"
 
+#define LENGTH 7
+
 char * stringToByte(char * L1, char * L2, char * L3, char * L4, char * L5, char * L6, char * L7, char * L8) {
   char * returnValue = (char *) malloc (LENGTH*sizeof(char));
   for (int i = 0; i < LENGTH; i++) {
